@@ -35,7 +35,7 @@ function App() {
         <div className="absolute" style={{ left: 20, bottom: 80, width: 86, height: 624, transform: 'scale(0.85)', transformOrigin: 'bottom left' }}>
           <LeftToolbar />
         </div>
-        <div className="absolute" style={{ left: 20, top: 20, width: 101, height: 44 }}>
+        <div className="absolute" style={{ left: 20, top: 20, width: 101, height: 44, transform: 'scale(0.85)', transformOrigin: 'top left' }}>
           <Interlink />
         </div>
       </div>
