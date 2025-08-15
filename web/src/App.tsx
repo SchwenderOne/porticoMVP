@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { } from 'react'
 import './App.css'
 
 import Topbar from './components/Topbar'
@@ -8,7 +8,6 @@ function App() {
   const BASE_WIDTH = 1521
   const LEFT_BLEED = 16
   const RIGHT_BLEED = 24
-  const innerRef = useRef<HTMLDivElement | null>(null)
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white">
       <div className="fixed left-0 top-0" style={{ width: '100dvw' }}>
