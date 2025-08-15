@@ -3,11 +3,13 @@ import './App.css'
 import Topbar from './components/Topbar'
 import LowerTopbar from './components/LowerTopbar'
 import ScaleContainer from './components/ScaleContainer'
+import EditorBackground from './components/EditorBackground'
 
 function App() {
   const BASE_WIDTH = 1521
   const BLEED = 16
   const LOWER_SHIFT_X = BLEED + 6
+  const TOTAL_TOPBAR_HEIGHT = 91 + 34
   return (
     <div className="min-h-screen bg-[#E8E8E8] text-white">
       <div className="fixed left-0 top-0" style={{ width: '100dvw' }}>
@@ -21,6 +23,9 @@ function App() {
             </div>
           </div>
         </ScaleContainer>
+      </div>
+      <div className="fixed left-[6px] right-[6px]" style={{ top: TOTAL_TOPBAR_HEIGHT + 6, bottom: 6, zIndex: 0 }}>
+        <EditorBackground />
       </div>
     </div>
   )
