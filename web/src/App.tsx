@@ -42,8 +42,8 @@ function App() {
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white">
       <div className="fixed left-0 top-0" style={{ width: '100dvw' }}>
-        <ScaleContainer width={BASE_WIDTH} height={91}>
-          <div ref={innerRef} style={{ marginLeft: -LEFT_BLEED, width: BASE_WIDTH + LEFT_BLEED + rightFudge }}>
+        <ScaleContainer width={BASE_WIDTH + LEFT_BLEED + rightFudge} height={91}>
+          <div ref={innerRef} style={{ marginLeft: -LEFT_BLEED, width: BASE_WIDTH }}>
             <Topbar />
           </div>
         </ScaleContainer>
