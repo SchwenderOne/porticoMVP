@@ -8,5 +8,12 @@ const PREVIEW_PORT = Number(process.env.PORT) || 3000
 export default defineConfig({
   plugins: [react()],
   server: { host: true, port: DEV_PORT },
-  preview: { host: true, port: PREVIEW_PORT },
+  preview: {
+    host: true,
+    port: PREVIEW_PORT,
+    // Allow Railway domain access to the preview server
+    allowedHosts: [
+      'porticomvp-production.up.railway.app',
+    ],
+  },
 })
