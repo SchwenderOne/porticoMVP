@@ -1,13 +1,13 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 
-type ScaleContainerProps = {
+export type ScaleContainerProps = {
   width: number
   height: number
   maxScale?: number // allow upscaling so topbar can span full viewport width
   children: React.ReactNode
 }
 
-export default function ScaleContainer({ width, height, maxScale, children }: ScaleContainerProps) {
+export function ScaleContainer({ width, height, maxScale, children }: ScaleContainerProps) {
   const outerRef = useRef<HTMLDivElement | null>(null)
   const [containerWidth, setContainerWidth] = useState<number>(typeof window !== 'undefined' ? window.innerWidth : width)
 
@@ -42,5 +42,7 @@ export default function ScaleContainer({ width, height, maxScale, children }: Sc
     </div>
   )
 }
+
+export default ScaleContainer
 
 
