@@ -7,6 +7,7 @@ import ScaleContainer from './components/ScaleContainer'
 function App() {
   const BASE_WIDTH = 1521
   const BLEED = 16
+  const LOWER_SHIFT_X = BLEED
   return (
     <div className="min-h-screen bg-[#E8E8E8] text-white">
       <div className="fixed left-0 top-0" style={{ width: '100dvw' }}>
@@ -15,7 +16,7 @@ function App() {
             <div style={{ position: 'absolute', top: 0, left: 0, width: BASE_WIDTH, height: 91 }}>
               <Topbar />
             </div>
-            <div style={{ position: 'absolute', top: 91, left: 0, width: BASE_WIDTH, height: 34 }}>
+            <div style={{ position: 'absolute', top: 91, left: LOWER_SHIFT_X, width: BASE_WIDTH, height: 34 }}>
               <LowerTopbar />
             </div>
           </div>
