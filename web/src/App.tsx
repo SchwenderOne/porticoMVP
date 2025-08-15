@@ -5,6 +5,7 @@ import LowerTopbar from './components/LowerTopbar'
 import ScaleContainer from './components/ScaleContainer'
 import EditorBackground from './components/EditorBackground'
 import CloseToolbar from './components/CloseToolbar'
+import LeftToolbar from './components/LeftToolbar'
 
 function App() {
   const BASE_WIDTH = 1521
@@ -27,8 +28,11 @@ function App() {
       </div>
       <div className="fixed left-[6px] right-[6px]" style={{ top: TOTAL_TOPBAR_HEIGHT + 6, bottom: 6, zIndex: 0 }}>
         <EditorBackground />
-        <div className="absolute size-14" style={{ left: 6, bottom: 6 }}>
+        <div className="absolute size-14" style={{ left: 33, bottom: 20 }}>
           <CloseToolbar />
+        </div>
+        <div className="absolute" style={{ left: 20, bottom: 80, width: 86, height: 624 }}>
+          <LeftToolbar />
         </div>
       </div>
     </div>
