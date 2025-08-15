@@ -11,29 +11,23 @@ const imgAccessibility = '/topbar-assets/59ebdcce41d2bbed4aeaf7aa505399c0f8cbb65
 
 function Ask() {
   return (
-    <div
-      className="box-border content-stretch flex flex-row gap-2 items-center justify-start px-3 py-2 relative size-full"
-      data-name="ask"
-      data-node-id="81:10117"
-    >
-      <div className="absolute contents inset-0" data-name="layers" data-node-id="10:276">
-        <div className="absolute contents inset-0" data-name="layer button" data-node-id="10:277">
-          <div className="absolute bg-[rgba(255,255,255,0.25)] inset-0 rounded-[24.622px]" data-node-id="10:278">
-            <div
-              aria-hidden="true"
-              className="absolute border-2 border-[rgba(130,130,130,0.15)] border-solid inset-0 pointer-events-none rounded-[24.622px] shadow-[0px_0px_25.097px_0.988px_rgba(0,0,0,0.05)]"
-            />
-          </div>
+    <div className="relative size-full" data-name="ask" data-node-id="81:10117">
+      <div className="absolute inset-0 rounded-[24.622px] bg-[rgba(255,255,255,0.25)]" data-node-id="10:278">
+        <div
+          aria-hidden="true"
+          className="absolute border-2 border-[rgba(130,130,130,0.15)] border-solid inset-0 pointer-events-none rounded-[24.622px] shadow-[0px_0px_25.097px_0.988px_rgba(0,0,0,0.05)]"
+        />
+      </div>
+      <div className="absolute inset-0 box-border flex flex-row gap-2 items-center justify-start px-3 py-2">
+        <div className="relative shrink-0 size-3.5" data-name="Group" data-node-id="10:279">
+          <img alt="" className="block max-w-none size-full" src={imgGroup} />
         </div>
-      </div>
-      <div className="relative shrink-0 size-3.5" data-name="Group" data-node-id="10:279">
-        <img alt="" className="block max-w-none size-full" src={imgGroup} />
-      </div>
-      <div
-        className="font-['Aeonik_Pro:Medium',_sans-serif] leading-[0] not-italic overflow-ellipsis overflow-hidden relative shrink-0 text-[#343434] text-[16.363px] text-center text-nowrap tracking-[-0.1636px] w-[30px]"
-        data-node-id="10:282"
-      >
-        <p className="adjustLetterSpacing block leading-[1.06]">Ask</p>
+        <div
+          className="font-['Aeonik_Pro:Medium',_sans-serif] leading-[0] not-italic overflow-ellipsis overflow-hidden relative shrink-0 text-[#343434] text-[16.363px] text-center text-nowrap tracking-[-0.1636px] w-[30px]"
+          data-node-id="10:282"
+        >
+          <p className="adjustLetterSpacing block leading-[1.06]">Ask</p>
+        </div>
       </div>
     </div>
   )
@@ -58,11 +52,7 @@ function SeperationLine() {
 export default function LowerTopbar() {
   return (
     <div className="relative size-full" data-name="filecard background 2" data-node-id="15:90">
-      <div
-        className="absolute box-border content-stretch flex flex-row gap-2 h-[34px] items-center justify-start left-[1380px] px-3 py-2 top-0 w-20"
-        data-name="ask"
-        data-node-id="81:10117"
-      >
+      <div className="absolute h-[34px] left-[1380px] top-0 w-20" data-name="ask" data-node-id="81:10117">
         <Ask />
       </div>
       <div className="absolute h-5 left-[246px] top-1.5 w-72" data-name="mockup for file place" data-node-id="15:93">
