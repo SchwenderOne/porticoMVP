@@ -6,6 +6,7 @@ import ScaleContainer from './components/ScaleContainer'
 import EditorBackground from './components/EditorBackground'
 import CloseToolbar from './components/CloseToolbar'
 import LeftToolbar from './components/LeftToolbar'
+import Interlink from './components/Interlink'
 
 function App() {
   const BASE_WIDTH = 1521
@@ -33,6 +34,9 @@ function App() {
         </div>
         <div className="absolute" style={{ left: 20, bottom: 80, width: 86, height: 624, transform: 'scale(0.85)', transformOrigin: 'bottom left' }}>
           <LeftToolbar />
+        </div>
+        <div className="absolute" style={{ left: 20, top: 20, width: 101, height: 44 }}>
+          <Interlink />
         </div>
       </div>
     </div>
