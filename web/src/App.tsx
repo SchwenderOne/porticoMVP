@@ -27,7 +27,7 @@ function App() {
       </div>
       <div className="fixed left-[6px] right-[6px]" style={{ top: TOTAL_TOPBAR_HEIGHT + 6, bottom: 6, zIndex: 0 }}>
         <EditorBackground />
-        <div className="absolute left-0 bottom-0 size-14" style={{ margin: 6 }}>
+        <div className="absolute size-14" style={{ left: 6, bottom: 6 }}>
           <CloseToolbar />
         </div>
       </div>
