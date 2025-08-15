@@ -28,10 +28,10 @@ function App() {
       </div>
       <div className="fixed left-[6px] right-[6px]" style={{ top: TOTAL_TOPBAR_HEIGHT + 6, bottom: 6, zIndex: 0 }}>
         <EditorBackground />
-        <div className="absolute size-14" style={{ left: 33, bottom: 20 }}>
+        <div className="absolute size-14" style={{ left: 33, bottom: 20, transform: 'scale(0.85)', transformOrigin: 'bottom left' }}>
           <CloseToolbar />
         </div>
-        <div className="absolute" style={{ left: 20, bottom: 80, width: 86, height: 624 }}>
+        <div className="absolute" style={{ left: 20, bottom: 80, width: 86, height: 624, transform: 'scale(0.85)', transformOrigin: 'bottom left' }}>
           <LeftToolbar />
         </div>
       </div>
