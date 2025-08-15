@@ -7,7 +7,7 @@ import ScaleContainer from './components/ScaleContainer'
 function App() {
   const BASE_WIDTH = 1521
   const BLEED = 16
-  const LOWER_SHIFT_X = BLEED
+  const LOWER_SHIFT_X = BLEED + 6
   return (
     <div className="min-h-screen bg-[#E8E8E8] text-white">
       <div className="fixed left-0 top-0" style={{ width: '100dvw' }}>
