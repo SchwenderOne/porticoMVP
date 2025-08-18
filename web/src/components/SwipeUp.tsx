@@ -13,7 +13,7 @@ export default function SwipeUp() {
 				/>
 			</div>
 			<div
-				className="absolute h-[14.014px] left-[29px] overflow-clip top-[15px] w-[22.993px]"
+				className="absolute h-[14.014px] left-[29px] overflow-clip top-[20px] w-[22.993px]"
 				data-name="chevron.up 1"
 				data-node-id="10:218"
 			>

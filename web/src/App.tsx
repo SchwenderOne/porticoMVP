@@ -62,7 +62,7 @@ function App() {
           <ViewBar />
         </div>
         {/* SwipeUp: centered at the bottom edge of the screen */}
-        <div className="absolute" style={{ left: '50%', bottom: 6, width: 81, height: 82, transform: 'translateX(-50%) scale(0.85)', transformOrigin: 'bottom center', zIndex: 10 }}>
+        <div className="absolute" style={{ left: '50%', bottom: -6, width: 81, height: 82, transform: 'translateX(-50%) scale(0.85)', transformOrigin: 'bottom center', zIndex: 10 }}>
           <SwipeUp />
         </div>
       </div>
