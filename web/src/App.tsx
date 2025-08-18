@@ -35,7 +35,7 @@ function App() {
       <div className="fixed left-[6px] right-[6px]" style={{ top: TOTAL_TOPBAR_HEIGHT + 6, bottom: 6, zIndex: 0 }}>
         <EditorBackground />
         {/* Floating toolbar: centered horizontally in editor area */}
-        <div className="absolute" style={{ left: '50%', top: 140, width: 850.469, height: 55.398, transform: 'translateX(-50%) scale(0.85)', transformOrigin: 'top center' }}>
+        <div className="absolute" style={{ left: '50%', top: 140, width: 862.611, height: 55.398, transform: 'translateX(-50%) scale(0.85)', transformOrigin: 'top center' }}>
           <FloatingToolbar />
         </div>
         <div className="absolute size-14" style={{ left: 33, bottom: 20, transform: 'scale(0.85)', transformOrigin: 'bottom left' }}>
