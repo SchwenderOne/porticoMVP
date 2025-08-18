@@ -53,10 +53,10 @@ function App() {
         <div className="absolute" style={{ right: 20, bottom: 20, width: 28, height: 28, transform: 'scale(0.85)', transformOrigin: 'bottom right' }}>
           <InfoButton />
         </div>
-        <div className="absolute" style={{ right: 20 + 28 + 6, bottom: 20, width: 315, height: 44, transform: 'scale(0.85)', transformOrigin: 'bottom right' }}>
+        <div className="absolute" style={{ right: 20 + 28 + 10, bottom: 20, width: 315, height: 44, transform: 'scale(0.85)', transformOrigin: 'bottom right' }}>
           <ZoomBar />
         </div>
-        <div className="absolute" style={{ right: 20 + 28 + 6 + 315 + 6, bottom: 20, width: 151, height: 44, transform: 'scale(0.85)', transformOrigin: 'bottom right' }}>
+        <div className="absolute" style={{ right: 20 + 28 + 10 + 315 + 10, bottom: 20, width: 151, height: 44, transform: 'scale(0.85)', transformOrigin: 'bottom right' }}>
           <ViewBar />
         </div>
       </div>
