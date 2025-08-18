@@ -133,3 +133,86 @@ Troubleshooting:
 This document is the single source of truth for the current visual architecture and refactor roadmap. Update it alongside any structural/UI changes.
 
 
+### 15) Environment & setup
+- Node: >=18 (recommend 20.x LTS). Add `.nvmrc` to lock Node version.
+- Package manager: npm (current). Fresh install: `rm -rf node_modules web/node_modules web/node_modules/.vite && npm ci`.
+- Dev server cache resets: clear `web/node_modules/.vite` and hard-refresh browser.
+
+### 16) Run & deploy
+- Dev: `cd web && npm run dev` (http://localhost:5173)
+- Build: `npm run build` (root delegates to `web`)
+- Preview: `cd web && npm run preview -- --host 0.0.0.0 --port 3000`
+- Railway: uses Vite preview; allowed host listed in `vite.config.ts`.
+
+### 17) Repo hygiene
+- Commits: follow Conventional Commits (feat, fix, chore, docs, refactor, etc.).
+- Branching: `main` protected; feature branches via PRs; small, focused edits.
+- Reviews: require at least 1 review for structural changes (layout, config, build).
+
+### 18) CI/CD (to add)
+- PR checks: `npm ci`, `npm run build`, `npm run lint`.
+- Optional: Storybook build + Chromatic/visual diff; preview deploy on PR.
+
+### 19) Design tokens (planned)
+- Add `web/src/styles/tokens.css` with CSS vars for colors, radii, blur, borders, shadows, spacings, z-index.
+- Mirror Figma radii (e.g., 27.867px) with named tokens and optionally rationalize to nearest coherent value.
+
+### 20) Scaling & gaps math
+- Editor widgets use `scale(0.85)` for parity; right-anchored transforms impact perceived gaps.
+- Visual 10px gap compensation ≈ 10 / 0.85 = 11.765 logical px. Centralize in `constants/layout.ts` and use helpers instead of inline expressions.
+
+### 21) Z-index scheme
+- Define layers: background (0–9), controls (10–49), overlays/toolbars (50–89), floating menus (90–199), modals (200+).
+- Replace magic z-index values with named constants.
+
+### 22) Assets policy
+- Source: Figma exports in `/web/public/topbar-assets` referenced as `/topbar-assets/...`.
+- Optimize SVGs (SVGO) and dedupe duplicates; prefer inline React SVG components for tiny icons where appropriate.
+- Licensing: ensure any non-Figma assets are license-compliant.
+
+### 23) Accessibility policy
+- Targets: keyboard operability for interactive controls, proper roles/labels, visible focus.
+- Current: `ZoomBar` exposes `role="slider"`, keyboard arrows, ARIA values.
+- Next: convert clickable images to `<button>` with `aria-label`; add focus styles; provide `aria-pressed` where toggle-like.
+
+### 24) Testing & Storybook
+- Unit: Vitest + React Testing Library (to add).
+- Visual: Storybook stories per component (Topbar, FloatingToolbar, ZoomBar, ViewBar, InfoButton, Layers, SwipeUp).
+- Smoke tests: render without errors; ZoomBar keyboard/drag behavior tests.
+
+### 25) Styling migration details
+- Install Tailwind locally (PostCSS). Remove CDN. Add `tailwind.config.ts`, `postcss.config.js`.
+- Create utility classes/components:
+  - `Glass`: frosted background + border ring variants.
+  - `Separator`: vertical line with thickness/opacity/height props.
+- Gradually replace inline styles with utilities while maintaining parity.
+
+### 26) TypeScript configuration
+- Raise strictness after migration (enable strict, noImplicitAny, etc.).
+- Add component prop types; avoid `any`. Export typed public APIs.
+
+### 27) State management
+- Current: local component state only (ZoomBar value).
+- Plan: lift selection/zoom state to a top-level provider when functionality requires coordination; defer adding external state libs until needed.
+
+### 28) Performance
+- Memoize static trees (FloatingToolbar groups) if re-render hotspots appear.
+- Prefer CSS for separators over image assets. Lazy-load heavy assets if introduced.
+
+### 29) Security & ops
+- Add dependency audit in CI (`npm audit` or third-party).
+- Plan CSP for production when real data/routes are added.
+
+### 30) Component parity matrix
+- Topbar: Visual parity OK; separator positioned. A11y TBD.
+- LowerTopbar: Visual parity OK. A11y TBD.
+- EditorBackground: OK.
+- CloseToolbar / LeftToolbar: Visual parity OK.
+- Interlink / Layers: Visual parity OK; text/icon alignment tuned.
+- InfoButton: Background size/position tuned; A11y TBD.
+- ZoomBar: Visual + basic behavior OK (drag/keys); integration TBD.
+- ViewBar: Visual parity OK; selection lifting TBD.
+- FloatingToolbar: Visual parity OK; groups/separators aligned.
+- SwipeUp: Visual parity OK; centered at bottom.
+
+
