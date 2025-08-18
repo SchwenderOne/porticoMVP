@@ -228,7 +228,7 @@ export default function FilecardBackground1() {
       <div className="absolute inset-[35.16%_60.16%_43.96%_36.09%]" data-name="undo-redo" data-node-id="10:231">
         <img alt="" className="block max-w-none size-full" src={imgUndoRedo} />
       </div>
-      <div className="absolute h-[21.365px] left-[518px] top-[31px] w-0" data-name="seperation line" data-node-id="12:88">
+      <div className="absolute h-[21.365px] left-[522px] top-[31px] w-0" data-name="seperation line" data-node-id="12:88">
         <SeperationLine />
       </div>
       <div
