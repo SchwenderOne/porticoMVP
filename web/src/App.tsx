@@ -12,6 +12,7 @@ import ZoomBar from './components/ZoomBar'
 import ViewBar from './components/ViewBar'
 import Layers from './components/Layers'
 import FloatingToolbar from './components/FloatingToolbar'
+import SwipeUp from './components/SwipeUp'
 
 function App() {
   const BASE_WIDTH = 1521
@@ -59,6 +60,10 @@ function App() {
         {/* Match visual gap with InfoButton↔ZoomBar by compensating for scale and right-anchored transform */}
         <div className="absolute" style={{ right: 20 + 28 + 11.765 + 315 - 31.285, bottom: 20, width: 151, height: 44, transform: 'scale(0.85)', transformOrigin: 'bottom right' }}>
           <ViewBar />
+        </div>
+        {/* SwipeUp: centered at the bottom edge of the screen */}
+        <div className="absolute" style={{ left: '50%', bottom: 6, width: 81, height: 82, transform: 'translateX(-50%) scale(0.85)', transformOrigin: 'bottom center', zIndex: 10 }}>
+          <SwipeUp />
         </div>
       </div>
     </div>
