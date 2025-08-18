@@ -51,7 +51,7 @@ function App() {
         <div className="absolute" style={{ right: 20, top: 20, width: 101, height: 44, transform: 'scale(0.85)', transformOrigin: 'top right' }}>
           <Layers />
         </div>
-        <div className="absolute" style={{ right: 20, bottom: 20, width: 28, height: 28, transform: 'scale(0.85)', transformOrigin: 'bottom right' }}>
+        <div className="absolute" style={{ right: 20, bottom: 28, width: 28, height: 28, transform: 'scale(0.85)', transformOrigin: 'bottom right' }}>
           <InfoButton />
         </div>
         <div className="absolute" style={{ right: 20 + 28 + 11.765, bottom: 20, width: 315, height: 44, transform: 'scale(0.85)', transformOrigin: 'bottom right' }}>
