@@ -8,6 +8,7 @@ import CloseToolbar from './components/CloseToolbar'
 import LeftToolbar from './components/LeftToolbar'
 import Interlink from './components/Interlink'
 import InfoButton from './components/InfoButton'
+import ZoomBar from './components/ZoomBar'
 
 function App() {
   const BASE_WIDTH = 1521
@@ -41,6 +42,9 @@ function App() {
         </div>
         <div className="absolute" style={{ right: 20, bottom: 20, width: 28, height: 28, transform: 'scale(0.85)', transformOrigin: 'bottom right' }}>
           <InfoButton />
+        </div>
+        <div className="absolute" style={{ right: 20 + 28 + 6, bottom: 20, width: 315, height: 44, transform: 'scale(0.85)', transformOrigin: 'bottom right' }}>
+          <ZoomBar />
         </div>
       </div>
     </div>
