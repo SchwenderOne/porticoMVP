@@ -28,6 +28,10 @@
 - Most elements in the editor area are absolutely positioned and uniformly scaled to 0.85 with `transformOrigin` to replicate Figma pixel positions.
 - Spacing to the right rail is computed in `App.tsx` using simple expressions; a 0.85 scale compensation is applied for visual 10px gaps.
 
+Additional layout primitives:
+- `ScaleContainer` computes a dynamic scale based on container width; uses `ResizeObserver` and `transform: scale()` with `origin-top-left` to keep the top bars crisp on any viewport.
+- Editor canvas is a fixed-position region beneath the bars; all editor widgets inside are individually scaled to 0.85 for parity.
+
 ### 6) Component notes (visual parity)
 - `Topbar.tsx` and `LowerTopbar.tsx`: mirror Figma, include small separators, avatars, play/settings, breadcrumb-like labels. A manual vertical separator is used between form name and undo/redo.
 - `EditorBackground.tsx`: background styling for editor surface.
@@ -38,9 +42,16 @@
 - `FloatingToolbar.tsx`: multi-group toolbar, icons placed and separated precisely; uses asset layering; z-index managed to avoid occlusion.
 - `SwipeUp.tsx`: frosted pill with chevron; centered on bottom border, spacing tuned.
 
+Behavioral components:
+- `ZoomBar.tsx`: Pointer-driven slider with keyboard support. Uses a track `div` with `role="slider"`, updates `aria-valuenow` in effect, and supports Arrow keys. Internal state only (not yet lifted/connected).
+- `ViewBar.tsx`: Stateless selection visuals; right icon composes two glyph layers to achieve exact size. Click handlers can be added later to lift selection state.
+
 ### 7) Styling approach
 - Hybrid: Tailwind (CDN) + inline absolute styles. Tailwind CDN is a temporary helper; inline styles dominate for exact coordinates and transforms.
 - Visual effects (frosted background, borders) are inline CSS. Rounded metrics are often literal Figma values (e.g., 27.867px).
+
+Global CSS:
+- `web/src/index.css` sets `html, body, #root` to full height and normalizes body background, margin 0.
 
 ### 8) Accessibility
 - `ZoomBar` uses `role="slider"` and sets ARIA values. Other interactive icons are plain images/divs; full keyboard/A11y coverage is future work.
@@ -50,6 +61,9 @@
 - Vite `createHotContext`/cache hiccups: cleared node_modules/.vite and browser cache; restart dev server.
 - Git lock/bus errors: remove `.git/index.lock` and retry.
 - Tailwind CDN warning in production: acknowledged; to be replaced by PostCSS Tailwind setup.
+
+Other notes:
+- Dev server occasionally killed or ports stuck; if so, free port 5173 and restart. Browser cache/Vite cache clears often resolve asset HMR oddities.
 
 ### 10) Coding conventions
 - TypeScript for components; prefer explicit props and descriptive names.
@@ -70,6 +84,10 @@ Phase 1 – Styling system
 Phase 2 – Layout abstraction
 - Replace ad-hoc absolute math in `App.tsx` with named constants and helper functions; extract a right-rail layout helper to guarantee consistent gaps.
 - Remove hard-coded magic numbers where possible; centralize in `constants/layout.ts` (header heights, scale, gaps).
+
+Phase 2.5 – Component composition
+- Introduce a `Glass` utility component or Tailwind classes for frosted background + border; remove repeated inline border/blur blocks.
+- Create `Separator` atom with thickness/height props to replace repeated vertical line `div`s.
 
 Phase 3 – Components API + Reusability
 - Normalize icons as components (e.g., `<Icon name="…" />`) or co-locate SVGs; unify sizing/centering logic.
@@ -95,6 +113,10 @@ Phase 7 – Routing/State (future)
 - Dev: `cd web && npm run dev` (5173). If Vite gets killed or stuck: kill port 5173, clear `.vite` cache, restart.
 - Build: `npm run build` (root) → runs `web` build.
 - Preview: `cd web && npm run preview` (PORT defaults to 3000); Railway allowed host configured in `vite.config.ts`.
+
+Troubleshooting:
+- Scheduler error: ensure `scheduler@0.25.0` installed and no custom alias. Clear `node_modules/.vite` when updating deps.
+- Vite client export error: hard refresh or clear browser cache.
 
 ### 13) Open items for parity + cleanup
 - Replace remaining image-layer separators with CSS-only lines if visually identical.
