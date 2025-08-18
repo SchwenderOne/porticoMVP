@@ -56,7 +56,8 @@ function App() {
         <div className="absolute" style={{ right: 20 + 28 + 11.765, bottom: 20, width: 315, height: 44, transform: 'scale(0.85)', transformOrigin: 'bottom right' }}>
           <ZoomBar />
         </div>
-        <div className="absolute" style={{ right: 20 + 28 + 11.765 + 315 + 11.765, bottom: 20, width: 151, height: 44, transform: 'scale(0.85)', transformOrigin: 'bottom right' }}>
+        {/* Match visual gap with InfoButton↔ZoomBar by compensating for scale and right-anchored transform */}
+        <div className="absolute" style={{ right: 20 + 28 + 11.765 + 315 - 31.285, bottom: 20, width: 151, height: 44, transform: 'scale(0.85)', transformOrigin: 'bottom right' }}>
           <ViewBar />
         </div>
       </div>
