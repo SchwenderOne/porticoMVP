@@ -32,35 +32,27 @@ export default function FloatingToolbar() {
           <img alt="" className="block max-w-none size-full" src={imgVector2} />
         </div>
       </div>
-      {/* center control cluster */}
-      <div className="absolute" style={{ left: 336.49, top: 15.39, width: 417.54, height: 21.365 }}>
-        <img alt="" className="block max-w-none size-full" src={imgGroup33} />
+      {/* icons temporarily removed for stepwise implementation */}
+      {/* separator between font and size */}
+      <div className="absolute" style={{ left: 218.52, top: 17.44, width: 1.026, height: 21.365, background: 'rgba(130,130,130,0.25)' }} />
+      {/* icon group to the right of text size (Figma node 35:449) */}
+      <div className="absolute" style={{ left: 352.91, top: 16, width: 125, height: 24, zIndex: 100 }}>
+        <div className="relative" style={{ width: '100%', height: '100%' }}>
+          {/* brush icon */}
+          <img alt="" style={{ position: 'absolute', left: 0.43, top: 0, width: 20.036, height: 18 }} src={imgGroup} />
+          {/* thin color bar centered under brush */}
+          <div style={{ position: 'absolute', left: 0 , top: 12, width: 20.036, height: 3, display: 'flex', justifyContent: 'center', overflow: 'visible' }}>
+            <img alt="" style={{ width: 3, height: 20, transform: 'rotate(90deg)', transformOrigin: 'center center' }} src={imgGroup2} />
+          </div>
+          {/* the wide control to the right */}
+          <img alt="" style={{ position: 'absolute', left: 43.09, top: 0.41, width: 81.046, height: 23.596 }} src={imgGroup29} />
+        </div>
       </div>
-      {/* center icons row */}
-      <div className="absolute" style={{ left: 512, top: 16.41 }}>
-        <img alt="" style={{ position: 'absolute', left: 0, top: 0, width: 21.544, height: 18.466 }} src={imgTextAligncenter1} />
-        <img alt="" style={{ position: 'absolute', left: 40.01, top: 0, width: 25.647, height: 18.466 }} src={imgListBullet1} />
-        <img alt="" style={{ position: 'absolute', left: 129.27, top: 0, width: 23.596, height: 18.466 }} src={imgDistributeVerticalCenter1} />
-        <img alt="" style={{ position: 'absolute', left: 168.13, top: 0, width: 26.673, height: 18.466 }} src={imgArrowUpAndDownTextHorizontal1} />
-        <img alt="" style={{ position: 'absolute', left: 171.33, top: 1.03, width: 21.365, height: 21.365 }} src={imgVector} />
-        <img alt="" style={{ position: 'absolute', left: 206.2, top: 7.18, width: 19.658, height: 4.257 }} src={imgEllipsis1} />
-      </div>
-      {/* right controls */}
-      <div className="absolute" style={{ left: 770.45, top: 17.44 }}>
-        <img alt="" style={{ position: 'absolute', left: 0, top: 0, width: 21.365, height: 21.365 }} src={imgVector1} />
-        <img alt="" style={{ position: 'absolute', left: 37.96, top: 0, width: 19.267, height: 18.903 }} src={imgDotSquare2} />
-      </div>
-      {/* separators and group */}
-      <div className="absolute" style={{ left: 218.52, top: 17.44, width: 21.365, height: 21.359 }}>
-        <img alt="" style={{ position: 'absolute', left: 0, top: 0, width: 21.365, height: 0 }} src={imgLine2} />
-      </div>
-      <div className="absolute" style={{ left: 352.91, top: 16 }}>
-        <img alt="" style={{ position: 'absolute', left: 43.09, top: 0.41, width: 81.046, height: 23.596 }} src={imgGroup29} />
-        <img alt="" style={{ position: 'absolute', left: 0, top: 0, width: 21.531, height: 21.544, transform: 'rotate(90deg) scaleY(-1)' }} src={imgGroup2} />
-        <img alt="" style={{ position: 'absolute', left: 0.43, top: 0, width: 20.036, height: 18.0 }} src={imgGroup} />
-      </div>
-      {/* right end group */}
-      <div className="absolute" style={{ right: 0, top: 8, width: 62.061, height: 39.014 }}>
+      {/* separators flanking the icon group */}
+      <div className="absolute" style={{ left: 330, top: 17.44, width: 1.026, height: 21.365, background: 'rgba(130,130,130,0.25)', zIndex: 90 }} />
+      <div className="absolute" style={{ left: 498, top: 17.44, width: 1.026, height: 21.365, background: 'rgba(130,130,130,0.25)', zIndex: 90 }} />
+      {/* text size group – immediately to the right of separator */}
+      <div className="absolute" style={{ left: 228.5, top: 8, width: 62.061, height: 39.014 }}>
         <img alt="" className="block max-w-none size-full" src={imgGroup32} />
         <img alt="" style={{ position: 'absolute', left: 68, top: 11, width: 17.44, height: 17.44 }} src={imgFrame} />
       </div>

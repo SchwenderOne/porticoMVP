@@ -1,0 +1,8 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 29 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Tooltip">
+<g id="Tooltip shape">
+<path d="M15.0711 1.48529C15.962 1.48529 16.4081 2.56243 15.7782 3.1924L9.70711 9.26347C9.31658 9.654 8.68342 9.654 8.29289 9.26347L2.22183 3.1924C1.59187 2.56243 2.03803 1.48529 2.92894 1.48529H15.0711Z" fill="var(--fill-0, white)"/>
+<path d="M15.0712 0.985342C16.4074 0.985429 17.0766 2.60091 16.1318 3.54584L10.0607 9.61702C9.47487 10.2028 8.52513 10.2028 7.93934 9.61702L1.86817 3.54584C0.923408 2.60091 1.5926 0.985428 2.92883 0.985342H15.0712Z" stroke="var(--stroke-0, black)" stroke-opacity="0.08"/>
+</g>
+</g>
+</svg>
