@@ -47,7 +47,7 @@ function App() {
         <div className="absolute" style={{ right: 20 + 28 + 6, bottom: 20, width: 315, height: 44, transform: 'scale(0.85)', transformOrigin: 'bottom right' }}>
           <ZoomBar />
         </div>
-        <div className="absolute" style={{ right: 20 + 28 + 6 + 6 + 151, bottom: 20, width: 151, height: 44, transform: 'scale(0.85)', transformOrigin: 'bottom right' }}>
+        <div className="absolute" style={{ right: 20 + 28 + 6 + 315 + 6, bottom: 20, width: 151, height: 44, transform: 'scale(0.85)', transformOrigin: 'bottom right' }}>
           <ViewBar />
         </div>
       </div>

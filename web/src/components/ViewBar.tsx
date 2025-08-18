@@ -27,29 +27,23 @@ export default function ViewBar() {
         />
       </div>
 
-      {/* square grid icon */}
-      <div className="absolute" style={{ left: 12, top: 4, width: 22, height: 22 }} data-name="square grid" data-node-id="10:427">
+      {/* square grid icon (left) */}
+      <div className="absolute" style={{ left: 27, top: 11, width: 22, height: 22 }} data-name="square grid" data-node-id="10:427">
         <img alt="" className="block max-w-none size-full" src={imgSquareGrid} />
       </div>
 
-      {/* dot grid icon */}
-      <div className="absolute overflow-hidden" style={{ left: 57, top: 4, width: 22, height: 22 }} data-name="dot grid" data-node-id="10:430">
+      {/* dot grid icon (center) */}
+      <div className="absolute overflow-hidden" style={{ left: 65, top: 11, width: 22, height: 22 }} data-name="dot grid" data-node-id="10:430">
         <img alt="" className="block max-w-none size-full" src={imgDotGrid} />
       </div>
 
-      {/* basic view icon */}
-      <div className="absolute overflow-hidden" style={{ left: 99, top: 0, width: 50, height: 24 }} data-name="basic view" data-node-id="10:437">
-        <div className="absolute" style={{ inset: 0 }} data-name="Group" data-node-id="10:438">
-          <div className="absolute flex items-center justify-center" style={{ left: 0, top: 0, right: 24, bottom: 11 }}>
-            <div style={{ width: 23.095, height: 23.053, rotate: '1.222deg' as any }}>
-              <div className="relative size-full" data-name="Vector" data-node-id="10:439">
-                <img alt="" className="block max-w-none size-full" src={imgVector} />
-              </div>
-            </div>
-          </div>
-          <div className="absolute overflow-hidden" style={{ left: 1, top: 0, right: 25, bottom: 11 }} data-name="square.text.square 1" data-node-id="10:440">
-            <img alt="" className="block max-w-none size-full" src={imgSquareTextSquare1} />
-          </div>
+      {/* basic view icon (right) exact fit 22x22 */}
+      <div className="absolute overflow-hidden" style={{ left: 103, top: 11, width: 22, height: 22 }} data-name="basic view" data-node-id="10:437">
+        {/* Background glyph (square with text) */}
+        <img alt="" className="absolute" style={{ left: 0, top: 0, width: 22, height: 22 }} src={imgSquareTextSquare1} />
+        {/* Foreground vector accent; source icon is ~23x23 in figma; scale uniformly to fit 22x22 and center */}
+        <div className="absolute" style={{ left: 0, top: 0, width: 22, height: 22, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <img alt="" style={{ width: '95%', height: '95%', transform: 'rotate(1.222deg)' }} src={imgVector} />
         </div>
       </div>
     </div>
