@@ -10,6 +10,7 @@ import Interlink from './components/Interlink'
 import InfoButton from './components/InfoButton'
 import ZoomBar from './components/ZoomBar'
 import ViewBar from './components/ViewBar'
+import Layers from './components/Layers'
 
 function App() {
   const BASE_WIDTH = 1521
@@ -40,6 +41,9 @@ function App() {
         </div>
         <div className="absolute" style={{ left: 20, top: 20, width: 101, height: 44, transform: 'scale(0.85)', transformOrigin: 'top left' }}>
           <Interlink />
+        </div>
+        <div className="absolute" style={{ right: 20, top: 20, width: 101, height: 44, transform: 'scale(0.85)', transformOrigin: 'top right' }}>
+          <Layers />
         </div>
         <div className="absolute" style={{ right: 20, bottom: 20, width: 28, height: 28, transform: 'scale(0.85)', transformOrigin: 'bottom right' }}>
           <InfoButton />
