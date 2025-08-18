@@ -228,7 +228,7 @@ export default function FilecardBackground1() {
       <div className="absolute inset-[35.16%_60.16%_43.96%_36.09%]" data-name="undo-redo" data-node-id="10:231">
         <img alt="" className="block max-w-none size-full" src={imgUndoRedo} />
       </div>
-      <div className="absolute" style={{ left: 522, top: 31, width: 2.052, height: 21.365, background: 'rgba(130,130,130,0.25)', zIndex: 200 }} />
+      <div className="absolute" style={{ left: 518, top: 31, width: 2.052, height: 21.365, background: 'rgba(130,130,130,0.25)', zIndex: 200 }} />
       <div
         className="absolute font-['Aeonik_Pro:Medium',_sans-serif] h-[19px] leading-[0] left-[83px] not-italic text-[#4d4d4d] text-[21.326px] text-left top-[31px] tracking-[-0.2133px] w-[411px]"
         data-node-id="10:230"
