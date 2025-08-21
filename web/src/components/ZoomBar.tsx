@@ -102,19 +102,25 @@ export default function ZoomBar() {
         ref={trackRef}
         role="slider"
         aria-label="Zoom"
-        aria-valuemin="0"
-        aria-valuemax="100"
-        aria-valuenow="0"
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-valuenow={Math.round(value * 100)}
         tabIndex={0}
-        onKeyDown={(e) => {
-          if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') { e.preventDefault(); onMinus(); }
-          if (e.key === 'ArrowRight' || e.key === 'ArrowUp') { e.preventDefault(); onPlus(); }
+        onKeyDown={e => {
+          if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {
+            e.preventDefault()
+            onMinus()
+          }
+          if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {
+            e.preventDefault()
+            onPlus()
+          }
         }}
-        onPointerDown={(e) => {
+        onPointerDown={e => {
           draggingRef.current = true
           setFromClientX(e.clientX)
         }}
-        onClick={(e) => setFromClientX(e.clientX)}
+        onClick={e => setFromClientX(e.clientX)}
         className="absolute"
         style={{ left: 45, right: 129, top: 19, height: 6 }}
         data-name="Background"

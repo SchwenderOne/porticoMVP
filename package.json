@@ -7,7 +7,18 @@
   "scripts": {
     "postinstall": "cd web && npm ci",
     "build": "cd web && npm run build",
-    "start": "npm run build && cd web && npm run preview -- --host 0.0.0.0 --port ${PORT:-3000}"
+    "start": "npm run build && cd web && npm run preview -- --host 0.0.0.0 --port ${PORT:-3000}",
+    "prepare": "husky",
+    "format": "cd web && npm run format",
+    "format:check": "cd web && npm run format:check",
+    "lint": "cd web && npm run lint",
+    "typecheck": "cd web && npm run typecheck"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.10"
   }
 }
 

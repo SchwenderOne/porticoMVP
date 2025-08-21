@@ -1,4 +1,3 @@
-const imgGroup33 = '/topbar-assets/4238c43e3d1a54dd11ba3ca2fbf7f6d5b5ba9d38.svg'
 const imgArrowUpAndDownTextHorizontal1 = '/topbar-assets/a752aa24e9750fdf32cb0845fe06439b64bbf4e0.svg'
 const imgVector = '/topbar-assets/b14e2be829a45070957ba2301792e56477f24ac8.svg'
 const imgTextAligncenter1 = '/topbar-assets/857fbe3555bca5ebfa9e49f3fd0c1661f3072f19.svg'
@@ -8,7 +7,6 @@ const imgEllipsis1 = '/topbar-assets/3a9c4419406debff05d8aaa07fd1696d70268133.sv
 const imgDotSquare2 = '/topbar-assets/1d9272b6ca8ca63e8b959a0212fb3df322784526.svg'
 const imgVector1 = '/topbar-assets/38dc7c1e1c713241a73101adb878168d6ea86234.svg'
 const imgVector2 = '/topbar-assets/e26cfe668956cd1cc95f3b8d6ff56f59e45878b0.svg'
-const imgLine2 = '/topbar-assets/197b9d38fb8fe3b0cdc1c525af5df6333d7d0897.svg'
 const imgGroup29 = '/topbar-assets/5ad825c50a07567837186a0cd08073132f45bd6f.svg'
 const imgGroup2 = '/topbar-assets/50864725b699af4126779f8b92f04e4307967b04.svg'
 const imgGroup = '/topbar-assets/c33c16fe8d906d54e55b524b018e543780984093.svg'
