@@ -13,7 +13,9 @@ const imgGroup = '/topbar-assets/c33c16fe8d906d54e55b524b018e543780984093.svg'
 const imgGroup32 = '/topbar-assets/1d1a78336c3bbe8d5c12fa6c6408d764758f7c37.svg'
 const imgFrame = '/topbar-assets/6f8a04242277d3bf1a6ca0a51a9438d87399e7e6.svg'
 
-export default function FloatingToolbar() {
+import { memo } from 'react'
+
+function FloatingToolbarInner() {
   return (
     <div className="relative" style={{ width: 862.611, height: 55.398 }} data-name="floating toolbar" data-node-id="35:397">
       {/* background */}
@@ -72,5 +74,7 @@ export default function FloatingToolbar() {
     </div>
   )
 }
+
+export default memo(FloatingToolbarInner)
 
 

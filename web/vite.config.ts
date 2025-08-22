@@ -7,6 +7,7 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 import { fileURLToPath } from 'node:url'
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin'
+import { visualizer } from 'rollup-plugin-visualizer'
 const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url))
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
@@ -57,6 +58,20 @@ export default defineConfig({
           setupFiles: ['.storybook/vitest.setup.ts']
         }
       }
+      ,
+      {
+        test: {
+          name: 'unit',
+          environment: 'jsdom',
+          globals: true,
+          setupFiles: ['src/test/setup.ts']
+        }
+      }
     ]
+  },
+  build: {
+    rollupOptions: {
+      plugins: process.env.ANALYZE ? [visualizer({ filename: 'dist/stats.html', open: false })] : []
+    }
   }
 })
