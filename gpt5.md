@@ -215,4 +215,17 @@ This document is the single source of truth for the current visual architecture 
 - FloatingToolbar: Visual parity OK; groups/separators aligned.
 - SwipeUp: Visual parity OK; centered at bottom.
 
+### 31) Components API (Phase 4 updates)
+- InfoButton (`web/src/components/InfoButton.tsx`)
+  - Props: `ariaLabel?: string` (default: "Open info panel"), `onClick?: () => void`
+  - Semantics: `<button>` with visible focus outline and decorative image
+
+- ViewBar (`web/src/components/ViewBar.tsx`)
+  - Props: `value?: 'grid' | 'dots' | 'basic'` (default: 'grid'), `onChange?: (next) => void`, `ariaLabel?: string`
+  - Semantics: group of three `<button>` items with `aria-pressed`
+
+- ZoomBar (`web/src/components/ZoomBar.tsx`)
+  - Props: `value?: number` (0..1), `onChange?: (next: number) => void`, `ariaLabel?: string`
+  - Semantics: slider `role="slider"` with keyboard arrows; supports controlled/uncontrolled
+
 

@@ -38,7 +38,7 @@ export default function ViewBar({ value = 'grid', onChange, ariaLabel = 'Change 
         aria-label="Square grid view"
         aria-pressed={isSelected('grid')}
         onClick={handle('grid')}
-        className="absolute"
+        className="absolute focus:outline-none"
         style={{ left: 27, top: 11, width: 22, height: 22 }}
         data-name="square grid"
         data-node-id="10:427"
@@ -52,7 +52,7 @@ export default function ViewBar({ value = 'grid', onChange, ariaLabel = 'Change 
         aria-label="Dot grid view"
         aria-pressed={isSelected('dots')}
         onClick={handle('dots')}
-        className="absolute overflow-hidden"
+        className="absolute overflow-hidden focus:outline-none"
         style={{ left: 65, top: 11, width: 22, height: 22 }}
         data-name="dot grid"
         data-node-id="10:430"
@@ -66,7 +66,7 @@ export default function ViewBar({ value = 'grid', onChange, ariaLabel = 'Change 
         aria-label="Basic view"
         aria-pressed={isSelected('basic')}
         onClick={handle('basic')}
-        className="absolute overflow-hidden"
+        className="absolute overflow-hidden focus:outline-none"
         style={{ left: 103, top: 11, width: 22, height: 22 }}
         data-name="basic view"
         data-node-id="10:437"

@@ -11,7 +11,7 @@ export default function InfoButton({ ariaLabel = 'Open info panel', onClick }: I
       type="button"
       aria-label={ariaLabel}
       onClick={onClick}
-      className="relative size-full"
+      className="relative size-full focus:outline-none"
       data-name="info"
       data-node-id="10:310"
       style={{ appearance: 'none', background: 'transparent', border: 'none', padding: 0 }}
@@ -22,6 +22,20 @@ export default function InfoButton({ ariaLabel = 'Open info panel', onClick }: I
         <div className="absolute" style={{ left: '50%', top: '50%', width: 10, height: 18, transform: 'translate(-50%, -50%)', zIndex: 100 }}>
           <img alt="" className="block max-w-none size-full" src={imgInfo1} />
         </div>
+        {/* focus ring overlay */}
+        <div
+          aria-hidden
+          className="absolute pointer-events-none rounded-[9999px]"
+          style={{
+            left: '50%',
+            top: '50%',
+            width: 44,
+            height: 44,
+            transform: 'translate(-50%, -50%)',
+            border: '2px solid #1985cc',
+            opacity: 0,
+          }}
+        />
       </div>
     </button>
   )
