@@ -1,7 +1,7 @@
 {
-  "*.{js,jsx,ts,tsx,css,md,json}": [
+  "web/**/*.{js,jsx,ts,tsx,css,md,json}": [
     "prettier --write",
-    "eslint --fix --quiet"
+    "eslint --fix --quiet --config web/eslint.config.js"
   ]
 }
 

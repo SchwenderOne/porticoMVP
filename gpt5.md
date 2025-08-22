@@ -1,4 +1,4 @@
-## Portico MVP – Central Documentation (GPT-5)
+ ## Portico MVP – Central Documentation (GPT-5)
 
 ### 1) Project overview
 - Minimal React + Vite + TypeScript app rendering a fixed-size Figma-derived UI with precise, absolute positioning inside a scaled canvas.
@@ -47,7 +47,7 @@ Behavioral components:
 - `ViewBar.tsx`: Stateless selection visuals; right icon composes two glyph layers to achieve exact size. Click handlers can be added later to lift selection state.
 
 ### 7) Styling approach
-- Hybrid: Tailwind (CDN) + inline absolute styles. Tailwind CDN is a temporary helper; inline styles dominate for exact coordinates and transforms.
+- Tailwind (local via Vite plugin) + inline absolute styles. Preflight disabled to avoid resets; inline styles dominate for exact coordinates and transforms.
 - Visual effects (frosted background, borders) are inline CSS. Rounded metrics are often literal Figma values (e.g., 27.867px).
 
 Global CSS:
@@ -60,7 +60,7 @@ Global CSS:
 - React 19 `scheduler` runtime error: fixed by adding `scheduler@0.25.0` as dependency; removed ad-hoc shims.
 - Vite `createHotContext`/cache hiccups: cleared node_modules/.vite and browser cache; restart dev server.
 - Git lock/bus errors: remove `.git/index.lock` and retry.
-- Tailwind CDN warning in production: acknowledged; to be replaced by PostCSS Tailwind setup.
+- Tailwind CDN replaced by local Tailwind (Vite plugin). Preflight disabled; no visual regressions observed.
 
 Other notes:
 - Dev server occasionally killed or ports stuck; if so, free port 5173 and restart. Browser cache/Vite cache clears often resolve asset HMR oddities.
@@ -172,8 +172,8 @@ This document is the single source of truth for the current visual architecture 
 
 ### 23) Accessibility policy
 - Targets: keyboard operability for interactive controls, proper roles/labels, visible focus.
-- Current: `ZoomBar` exposes `role="slider"`, keyboard arrows, ARIA values.
-- Next: convert clickable images to `<button>` with `aria-label`; add focus styles; provide `aria-pressed` where toggle-like.
+- Current: `ZoomBar` exposes `role="slider"`, keyboard arrows, numeric ARIA values; decorative separators converted to non-interactive `div` with `aria-hidden` and `role="presentation"` to avoid a11y violations in `Topbar` and `LowerTopbar`.
+- Next: convert remaining interactive images to `<button>` with `aria-label`; add focus styles; provide `aria-pressed` where toggle-like.
 
 ### 24) Testing & Storybook
 - Unit: Vitest + React Testing Library (to add).
@@ -181,10 +181,10 @@ This document is the single source of truth for the current visual architecture 
 - Smoke tests: render without errors; ZoomBar keyboard/drag behavior tests.
 
 ### 25) Styling migration details
-- Install Tailwind locally (PostCSS). Remove CDN. Add `tailwind.config.ts`, `postcss.config.js`.
+- Install Tailwind locally (Vite plugin). Remove CDN. Preflight disabled (import only theme/utilities in `src/index.css`).
 - Create utility classes/components:
-  - `Glass`: frosted background + border ring variants.
-  - `Separator`: vertical line with thickness/opacity/height props.
+  - `Glass` component added: frosted background + ring variants based on tokens.
+  - `Separator` component added: configurable orientation/thickness/length.
 - Gradually replace inline styles with utilities while maintaining parity.
 
 ### 26) TypeScript configuration
@@ -204,8 +204,8 @@ This document is the single source of truth for the current visual architecture 
 - Plan CSP for production when real data/routes are added.
 
 ### 30) Component parity matrix
-- Topbar: Visual parity OK; separator positioned. A11y TBD.
-- LowerTopbar: Visual parity OK. A11y TBD.
+- Topbar: Visual parity OK; separator positioned and marked aria-hidden. A11y warnings resolved in Storybook test-runner.
+- LowerTopbar: Visual parity OK; decorative separator marked aria-hidden. A11y warnings resolved in Storybook test-runner.
 - EditorBackground: OK.
 - CloseToolbar / LeftToolbar: Visual parity OK.
 - Interlink / Layers: Visual parity OK; text/icon alignment tuned.

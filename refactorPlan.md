@@ -25,9 +25,10 @@ Deliverables: Green `npm run build`, lint clean, pre-commit hooks enforced.
 - [ ] Visual regression snapshots (Chromatic or Playwright screenshots) to lock parity.
 
 #### Phase 2 — Styling system migration
-- [ ] Install Tailwind (PostCSS) locally; remove CDN.
+- [x] Install Tailwind locally via Vite plugin; remove CDN.
 - [ ] Introduce tokens (`styles/tokens.css`).
-- [ ] Implement `Glass` and `Separator` utilities and adopt across components.
+- [x] Introduce tokens (`styles/tokens.css`).
+- [x] Implement `Glass` and `Separator` utilities and adopt across components (ready for gradual adoption).
 
 #### Phase 3 — Layout abstraction
 - [ ] Extract `constants/layout.ts` and helpers; remove magic numbers.
@@ -68,7 +69,10 @@ Date: 2025-08-20
   - [x] Stories added for Topbar, LowerTopbar, FloatingToolbar, ZoomBar, ViewBar, InfoButton, Layers, SwipeUp.
   - [x] Storybook build successful.
   - [x] Test runner (Playwright) added and executed; all suites passing; a11y warnings present.
-- Phase 2: Not started
+- Phase 2: In progress
+  - [x] Tailwind wired with Vite plugin; preflight disabled to prevent resets.
+  - [x] CDN removed; app and Storybook build clean; story tests pass.
+  - [ ] Add design tokens and utility abstractions (`Glass`, `Separator`).
 - Phase 3: Not started
 - Phase 4: Not started
 - Phase 5: Not started

@@ -2,6 +2,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'node:path'
+import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 import { fileURLToPath } from 'node:url'
@@ -12,7 +13,7 @@ const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(file
 const DEV_PORT = 5173
 const PREVIEW_PORT = Number(process.env.PORT) || 3000
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
       '@components': path.resolve(__dirname, 'src/components'),

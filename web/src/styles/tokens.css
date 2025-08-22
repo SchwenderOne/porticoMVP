@@ -1,0 +1,37 @@
+/* Design tokens: colors, radii, borders, blur, shadows, z-index */
+:root {
+  /* Glass/frosted backgrounds */
+  --glass-bg: rgba(229,229,229,0.5);
+  --frosted-bg-25: rgba(255,255,255,0.25);
+
+  /* Blurs */
+  --blur-17-65: 17.65px;
+  --blur-4-1: 4.1px;
+  --blur-3-4: 3.4px;
+
+  /* Radii */
+  --radius-27-867: 27.867px;
+  --radius-24-622: 24.622px;
+  --radius-9999: 9999px;
+
+  /* Borders */
+  --border-color-light: #e9e9e9;
+  --border-color-chip: rgba(130,130,130,0.15);
+  --border-1-858: 1.858px;
+  --border-1-026: 1.026px;
+  --border-1-045: 1.045px; /* zoom handle */
+  --border-1-394: 1.394px; /* zoom handle inner */
+
+  /* Shadows */
+  --shadow-chip: 0px 0px 25.097px 0.988px rgba(0,0,0,0.05);
+  --shadow-zoom: 0px 2.788px 4.181px -1px rgba(10,13,18,0.1), 0px 1.394px 2.788px -2px rgba(10,13,18,0.06);
+
+  /* Z-index scale (reference) */
+  --z-bg: 0;
+  --z-controls: 10;
+  --z-overlays: 50;
+  --z-float: 90;
+  --z-modal: 200;
+}
+
+

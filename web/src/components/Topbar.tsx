@@ -18,11 +18,17 @@ function SeperationLine() {
     <div className="relative size-full" data-name="seperation line" data-node-id="12:88">
       <div className="absolute bottom-0 flex items-center justify-center left-0 right-full top-0">
         <div className="flex-none">
-          <button className="block cursor-pointer relative size-full" data-name="seperation line" data-node-id="10:271">
+          <div
+            aria-hidden="true"
+            role="presentation"
+            className="block relative size-full"
+            data-name="seperation line"
+            data-node-id="10:271"
+          >
             <div className="absolute inset-[-1.39px_-6.52%]">
               <img alt="" className="block max-w-none size-full" src={imgSeperationLine} />
             </div>
-          </button>
+          </div>
         </div>
       </div>
     </div>
