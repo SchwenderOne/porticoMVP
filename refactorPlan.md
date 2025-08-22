@@ -30,15 +30,16 @@ Deliverables: Green `npm run build`, lint clean, pre-commit hooks enforced.
 - [x] Implement `Glass` and `Separator` utilities and adopt across components (ready for gradual adoption).
 
 #### Phase 3 — Layout abstraction
-- [ ] Extract `constants/layout.ts` and helpers; remove magic numbers.
+- [x] Extract `constants/layout.ts` and helpers; remove magic numbers in `App.tsx`.
 
 #### Phase 4 — Component APIs and Accessibility
-- [ ] Normalize component props and events (ZoomBar callbacks, ViewBar selection).
-- [ ] Convert interactive elements to semantic controls; add labels/focus.
-- [ ] Add `eslint-plugin-jsx-a11y` and fix violations.
+- [x] Normalize component props and events (ZoomBar callbacks, ViewBar selection).
+- [x] Convert interactive elements to semantic controls; add labels and initial focus visuals.
+- [x] Add `eslint-plugin-jsx-a11y` and resolve rule configuration.
 
 #### Phase 5 — TypeScript strict uplift
-- [ ] Incrementally enable stricter TS flags; eliminate `any` in public APIs.
+- [x] Enable stricter TS flags (`exactOptionalPropertyTypes`, `noUncheckedIndexedAccess`, `noImplicitReturns`, `noImplicitOverride`, `noPropertyAccessFromIndexSignature`, etc.).
+- [x] Fix strictness violations in utilities and Storybook samples.
 
 #### Phase 6 — Tests and performance
 - [ ] Vitest + RTL unit tests; Playwright for key interactions.
@@ -72,10 +73,9 @@ Date: 2025-08-22
   - [x] Tailwind wired with Vite plugin; preflight disabled to prevent resets.
   - [x] CDN removed; app and Storybook build clean; story tests pass.
   - [x] Design tokens and utility abstractions added.
-- Phase 3: Not started
-- Phase 3: Not started
-- Phase 4: Not started
-- Phase 5: Not started
+- Phase 3: Completed
+- Phase 4: In progress (core complete; optional focus polish ongoing)
+- Phase 5: Completed (typecheck clean)
 - Phase 6: Not started
 - Phase 7: Not started
 

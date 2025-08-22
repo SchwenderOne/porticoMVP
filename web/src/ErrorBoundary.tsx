@@ -10,20 +10,20 @@ type ErrorBoundaryState = {
 }
 
 export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
-	state: ErrorBoundaryState = { hasError: false }
+	override state: ErrorBoundaryState = { hasError: false }
 
 	static getDerivedStateFromError(error: unknown): ErrorBoundaryState {
 		return { hasError: true, errorMessage: error instanceof Error ? error.message : String(error) }
 	}
 
-	componentDidCatch(error: unknown, errorInfo: unknown) {
+	override componentDidCatch(error: unknown, errorInfo: unknown) {
 		// In production, wire to logging backend if needed
 		if (import.meta.env.DEV) {
 			console.error('ErrorBoundary caught', error, errorInfo)
 		}
 	}
 
-	render() {
+	override render() {
 		if (this.state.hasError) {
 			return (
 				<div style={{ padding: 16, color: '#b91c1c', fontFamily: 'Inter, system-ui, Arial, sans-serif' }}>
