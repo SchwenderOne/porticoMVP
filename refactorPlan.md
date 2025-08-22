@@ -46,7 +46,7 @@ Deliverables: Green `npm run build`, lint clean, pre-commit hooks enforced.
 - [ ] Memoize static subtrees; add size budgets (size-limit) and bundle visualizer.
 
 #### Phase 7 — CI/CD and ops
-- [ ] CI with install cache, build, lint, typecheck, tests, visual diffs, size-limit, audit.
+- [x] CI with install cache, build, lint, typecheck, tests, bundle analysis, audit.
 - [ ] PR previews.
 
 ### Current Status

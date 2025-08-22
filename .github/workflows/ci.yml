@@ -1,0 +1,72 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Run unit and storybook tests
+        working-directory: web
+        run: npx vitest run --reporter=verbose
+
+      - name: Build app
+        run: npm run build
+
+      - name: Build Storybook
+        working-directory: web
+        run: npm run build-storybook
+
+      - name: Build analyze report
+        working-directory: web
+        run: npm run analyze
+
+      - name: Upload app dist artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-dist
+          path: web/dist
+
+      - name: Upload Storybook artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: storybook-static
+          path: web/storybook-static
+
+      - name: Upload bundle stats
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: bundle-stats
+          path: web/dist/stats.html
+
+      - name: Security audit (non-blocking)
+        continue-on-error: true
+        run: npm audit --audit-level=moderate
+
+

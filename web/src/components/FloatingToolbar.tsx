@@ -24,7 +24,10 @@ function FloatingToolbarInner() {
       </div>
       {/* left input chip */}
       <div className="absolute" style={{ left: 9, top: 8, width: 190.817, height: 38.984 }}>
-        <div className="absolute" style={{ left: 0, top: 0, width: '100%', height: '100%', borderRadius: 24.622, background: 'rgba(255,255,255,0.25)', border: '1.026px solid rgba(130,130,130,0.15)' }} />
+        <div
+          className="absolute"
+          style={{ left: 0, top: 0, width: '100%', height: '100%', borderRadius: 24.622, background: 'rgba(255,255,255,0.25)', border: '1.026px solid rgba(130,130,130,0.15)' }}
+        />
         <div className="absolute" style={{ left: 12.77, top: 19 }}>
           <div style={{ color: '#4d4d4d', fontSize: 18.578, lineHeight: '20px', transform: 'translateY(-50%)' }}>Inter</div>
         </div>
@@ -41,7 +44,7 @@ function FloatingToolbarInner() {
           {/* brush icon */}
           <img alt="" style={{ position: 'absolute', left: 0.43, top: 0, width: 20.036, height: 18 }} src={imgGroup} />
           {/* thin color bar centered under brush */}
-          <div style={{ position: 'absolute', left: 0 , top: 12, width: 20.036, height: 3, display: 'flex', justifyContent: 'center', overflow: 'visible' }}>
+          <div style={{ position: 'absolute', left: 0, top: 12, width: 20.036, height: 3, display: 'flex', justifyContent: 'center', overflow: 'visible' }}>
             <img alt="" style={{ width: 3, height: 20, transform: 'rotate(90deg)', transformOrigin: 'center center' }} src={imgGroup2} />
           </div>
           {/* the wide control to the right */}
@@ -76,5 +79,3 @@ function FloatingToolbarInner() {
 }
 
 export default memo(FloatingToolbarInner)
-
-
