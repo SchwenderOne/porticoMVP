@@ -1,0 +1,86 @@
+name: Railway PR Preview
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+
+env:
+  RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+  RAILWAY_PROJECT_ID: ${{ secrets.RAILWAY_PROJECT_ID }}
+  RAILWAY_BASE_ENV_ID: ${{ secrets.RAILWAY_BASE_ENV_ID }}
+
+jobs:
+  deploy_preview:
+    if: github.event.action != 'closed'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Railway CLI
+        run: |
+          curl -fsSL https://railway.app/install.sh | sh
+          echo "$HOME/.railway/bin" >> $GITHUB_PATH
+
+      - name: Create/Update PR environment
+        run: |
+          if [ -z "$RAILWAY_TOKEN" ] || [ -z "$RAILWAY_PROJECT_ID" ] || [ -z "$RAILWAY_BASE_ENV_ID" ]; then
+            echo "Missing required Railway secrets (RAILWAY_TOKEN, RAILWAY_PROJECT_ID, RAILWAY_BASE_ENV_ID)" >&2
+            exit 1
+          fi
+          railway login --token "$RAILWAY_TOKEN"
+          railway link --project "$RAILWAY_PROJECT_ID" --environment "$RAILWAY_BASE_ENV_ID"
+          ENV_NAME=pr-${{ github.event.pull_request.number }}
+          # Create if not exists (ignore errors)
+          railway environment create "$ENV_NAME" --copy "$RAILWAY_BASE_ENV_ID" || true
+          # Switch to PR env and deploy
+          ENV_ID=$(railway environment list --json | jq -r ".environments[] | select(.name == \"$ENV_NAME\") | .id")
+          if [ -z "$ENV_ID" ]; then
+            echo "Failed to resolve PR environment id" >&2
+            exit 1
+          fi
+          railway link --project "$RAILWAY_PROJECT_ID" --environment "$ENV_ID"
+          # Build app
+          npm ci
+          npm run build
+          # Deploy (uses Railway config start command)
+          railway up --service web || railway up
+          # Try to fetch deployment URL and comment
+          URL=$(railway status --json | jq -r '.deployments[0].url // empty')
+          echo "DEPLOY_URL=$URL" >> $GITHUB_ENV
+
+      - name: Comment preview URL
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const url = process.env.DEPLOY_URL || 'Preview deployed (URL unavailable)';
+            const body = `🚀 Railway Preview for PR #${context.payload.pull_request.number}: ${url}`;
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.pull_request.number,
+              body
+            })
+
+  teardown_preview:
+    if: github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Railway CLI
+        run: |
+          curl -fsSL https://railway.app/install.sh | sh
+          echo "$HOME/.railway/bin" >> $GITHUB_PATH
+
+      - name: Delete PR environment
+        run: |
+          if [ -z "$RAILWAY_TOKEN" ] || [ -z "$RAILWAY_PROJECT_ID" ] || [ -z "$RAILWAY_BASE_ENV_ID" ]; then
+            echo "Missing required Railway secrets (RAILWAY_TOKEN, RAILWAY_PROJECT_ID, RAILWAY_BASE_ENV_ID)" >&2
+            exit 1
+          fi
+          railway login --token "$RAILWAY_TOKEN"
+          railway link --project "$RAILWAY_PROJECT_ID" --environment "$RAILWAY_BASE_ENV_ID"
+          ENV_NAME=pr-${{ github.event.pull_request.number }}
+          railway environment delete "$ENV_NAME" || true
+
+
