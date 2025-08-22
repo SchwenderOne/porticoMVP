@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 const imgGroup = '/topbar-assets/701acd33d56f71c810765b8fd8cb27d620cd9e16.svg'
 const imgGroup1 = '/topbar-assets/720fb423985bab7485f2c2d9a534520057b96e15.svg'
@@ -6,8 +6,16 @@ const imgMinusMagnifyingglass1 = '/topbar-assets/9c8c6bd6e0a75711023d94a1eaa195a
 const imgBackground = '/topbar-assets/9c38d7499c8de16f293c4701991d9b8cfcda3212.svg'
 const imgMinus = '/topbar-assets/3f3f92f9e00934d91d2b4e0de0b12ab2c7b4c360.svg'
 
-export default function ZoomBar() {
-  const [value, setValue] = useState<number>(0.65) // 0..1
+export type ZoomBarProps = {
+  value?: number // 0..1
+  onChange?: (next: number) => void
+  ariaLabel?: string
+}
+
+export default function ZoomBar({ value: controlledValue, onChange, ariaLabel = 'Zoom' }: ZoomBarProps) {
+  const isControlled = typeof controlledValue === 'number'
+  const [uncontrolled, setUncontrolled] = useState<number>(0.65) // 0..1
+  const value = isControlled ? controlledValue! : uncontrolled
   const trackRef = useRef<HTMLDivElement | null>(null)
   const draggingRef = useRef<boolean>(false)
 
@@ -17,8 +25,12 @@ export default function ZoomBar() {
     const rect = el.getBoundingClientRect()
     const raw = (clientX - rect.left) / rect.width
     const clamped = Math.max(0, Math.min(1, raw))
-    setValue(clamped)
-  }, [])
+    if (isControlled) {
+      onChange?.(clamped)
+    } else {
+      setUncontrolled(clamped)
+    }
+  }, [isControlled, onChange])
 
   useEffect(() => {
     const onMove = (e: PointerEvent) => {
@@ -43,8 +55,22 @@ export default function ZoomBar() {
     }
   }, [setFromClientX])
 
-  const onMinus = useCallback(() => setValue(v => Math.max(0, +(v - 0.1).toFixed(2))), [])
-  const onPlus = useCallback(() => setValue(v => Math.min(1, +(v + 0.1).toFixed(2))), [])
+  const onMinus = useCallback(() => {
+    const next = Math.max(0, +(value - 0.1).toFixed(2))
+    if (isControlled) {
+      onChange?.(next)
+    } else {
+      setUncontrolled(next)
+    }
+  }, [value, isControlled, onChange])
+  const onPlus = useCallback(() => {
+    const next = Math.min(1, +(value + 0.1).toFixed(2))
+    if (isControlled) {
+      onChange?.(next)
+    } else {
+      setUncontrolled(next)
+    }
+  }, [value, isControlled, onChange])
 
   useEffect(() => {
     const el = trackRef.current
@@ -101,7 +127,7 @@ export default function ZoomBar() {
       <div
         ref={trackRef}
         role="slider"
-        aria-label="Zoom"
+        aria-label={ariaLabel}
         aria-valuemin={0}
         aria-valuemax={100}
         aria-valuenow={Math.round(value * 100)}
