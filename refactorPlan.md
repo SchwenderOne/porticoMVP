@@ -26,7 +26,6 @@ Deliverables: Green `npm run build`, lint clean, pre-commit hooks enforced.
 
 #### Phase 2 — Styling system migration
 - [x] Install Tailwind locally via Vite plugin; remove CDN.
-- [ ] Introduce tokens (`styles/tokens.css`).
 - [x] Introduce tokens (`styles/tokens.css`).
 - [x] Implement `Glass` and `Separator` utilities and adopt across components (ready for gradual adoption).
 
@@ -51,7 +50,7 @@ Deliverables: Green `npm run build`, lint clean, pre-commit hooks enforced.
 
 ### Current Status
 
-Date: 2025-08-20
+Date: 2025-08-22
 
 - Phase 0: In progress
   - [x] Added `.editorconfig`, Prettier config; adjusted to preserve current spacing.
@@ -69,10 +68,11 @@ Date: 2025-08-20
   - [x] Stories added for Topbar, LowerTopbar, FloatingToolbar, ZoomBar, ViewBar, InfoButton, Layers, SwipeUp.
   - [x] Storybook build successful.
   - [x] Test runner (Playwright) added and executed; all suites passing; a11y warnings present.
-- Phase 2: In progress
+- Phase 2: Completed (base migration)
   - [x] Tailwind wired with Vite plugin; preflight disabled to prevent resets.
   - [x] CDN removed; app and Storybook build clean; story tests pass.
-  - [ ] Add design tokens and utility abstractions (`Glass`, `Separator`).
+  - [x] Design tokens and utility abstractions added.
+- Phase 3: Not started
 - Phase 3: Not started
 - Phase 4: Not started
 - Phase 5: Not started

@@ -7,7 +7,7 @@
 ### 2) Tech stack
 - React 19, ReactDOM 19
 - Vite 7 (dev/preview), TypeScript ~5.8
-- ESLint 9 (light rules); Tailwind via CDN (temporary)
+- ESLint 9 (light rules); Tailwind v4 via Vite plugin (local)
 - Deployed preview: Vite preview; Railway allowed host configured in `vite.config.ts`.
 
 ### 3) Dev scripts and engines
@@ -51,7 +51,7 @@ Behavioral components:
 - Visual effects (frosted background, borders) are inline CSS. Rounded metrics are often literal Figma values (e.g., 27.867px).
 
 Global CSS:
-- `web/src/index.css` sets `html, body, #root` to full height and normalizes body background, margin 0.
+- `web/src/index.css` sets `html, body, #root` to full height, normalizes body background/margins, and includes minimal base resets (box-sizing, headings inheritance, replaced elements display, neutral button appearance). Also imports `styles/tokens.css`.
 
 ### 8) Accessibility
 - `ZoomBar` uses `role="slider"` and sets ARIA values. Other interactive icons are plain images/divs; full keyboard/A11y coverage is future work.
